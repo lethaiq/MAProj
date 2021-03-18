@@ -57,6 +57,7 @@ def main(args):
 
             if args.mode == "train":
                 action = model.choose_action(state, noisy=True)
+                print("action", action)
                 next_state, reward, done, info = env.step(action)
 
                 step += 1
@@ -113,7 +114,7 @@ def main(args):
                     env.reset()
                     # model.reset()
                     break
-                    
+
             elif args.mode == "eval":
                 action = model.choose_action(state, noisy=False)
                 next_state, reward, done, info = env.step(action)
